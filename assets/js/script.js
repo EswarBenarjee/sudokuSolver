@@ -1,7 +1,7 @@
 let initialValues = [];
 let values = [];
 let elements = [];
-let solveMe = (skips = false) => {
+let solveMe = (skips = false, generateRandom = false) => {
   initialValues = [];
   values = [];
   elements = [];
@@ -16,6 +16,7 @@ let solveMe = (skips = false) => {
     elements.push(tempElement);
     values.push(tempValues);
   }
+
   initialValues = JSON.parse(JSON.stringify(values));
   solve(values, skips);
 };
@@ -111,7 +112,9 @@ let regenerate = () => {
       elements[i][j].style.color = "black";
     }
   }
-  solveMe(true);
+
+  solveMe(true, true);
+
   for (let i = 0; i < initialValues.length; i++) {
     for (let j = 0; j < initialValues[0].length; j++) {
       elements[i][j].style.background = "white";
@@ -138,3 +141,21 @@ empty.addEventListener("click", () => {
     }
   }
 });
+
+const share = () => {
+  navigator
+    .share({
+      title: "Sudoku Solver",
+      text: "Check out this sudoku solver",
+      url: window.location.href,
+    })
+    .then(() => {
+      setTimeout(() => {
+        var toastLiveExample = document.getElementById("toast");
+        var toast = new bootstrap.Toast(toastLiveExample);
+
+        toast.show();
+      }, 2000);
+    })
+    .catch(console.error);
+};
