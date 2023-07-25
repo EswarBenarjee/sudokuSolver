@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body class="p-5">
+    <!-- Toast Component -->
     <div class="w-100 d-flex justify-content-center align-items-center pb-4">
       <div
         class="toast align-items-center justify-content-center"
@@ -35,6 +36,7 @@
         id="toast"
         autohide="true"
         animation="true"
+        delay="1000"
       >
         <div class="d-flex">
           <div class="toast-body">Thanks for Sharing 💖!</div>
@@ -51,7 +53,11 @@
     <div class="d-block m-auto">
       <h2 class="text-center">
         Welcome to <br class="d-block d-md-none" />
-        <span>Sudoku Solver! <span onclick="share()">Share</span></span>
+        <span
+          >Sudoku Solver!
+          <span onclick="share()" style="display: inline">
+            <i class="fa-solid fa-square-share-nodes"></i> </span
+        ></span>
       </h2>
 
       <div class="d-block mt-5 adjust-square">
